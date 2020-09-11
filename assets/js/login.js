@@ -45,7 +45,7 @@ $("#form_login").on("submit", function (e) {
   e.preventDefault();
   $.ajax({
     type: "POST",
-    url: "/api/login",
+    url: "  /api/login",
     data: {
       username: $(".login-box [name=username]").val(),
       password: $(".login-box [name=password]").val(),
