@@ -1,7 +1,10 @@
-var layer = layui.layer;
+$(function () {
+  var layer = layui.layer;
 
-// 获取用户信息
-getUserInfo();
+  // 获取用户信息
+  getUserInfo();
+});
+
 function getUserInfo() {
   $.ajax({
     type: "GET",
@@ -11,6 +14,7 @@ function getUserInfo() {
         return layui.layer.msg("获取用户信息失败！");
       }
       // 调用 renderAvatar 渲染用户的头像
+      // console.log(res.data);
       renderAvatar(res.data);
     },
   });
@@ -19,7 +23,7 @@ function getUserInfo() {
 // 渲染用户信息
 function renderAvatar(user) {
   // 渲染用户名
-  var name = user.username || user.nickname;
+  var name = user.nickname || user.username;
   $("#welcome").html("欢迎" + name);
 
   // 渲染用户头像
@@ -27,7 +31,6 @@ function renderAvatar(user) {
     $(".layui-nav-img").attr("src", user.user_pic).show();
     $(".text-avatar").hide();
   } else {
-    渲染文本头像;
     $(".layui-nav-img").hide();
     var first = name[0].toUpperCase();
     $(".text-avatar").html(first).show();
