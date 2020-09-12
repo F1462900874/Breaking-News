@@ -57,6 +57,7 @@ $("#form_login").on("submit", function (e) {
       }
       layer.msg("登录成功");
       localStorage.setItem("token", res.token);
+      location.href = "/index.html";
     },
   });
 });
