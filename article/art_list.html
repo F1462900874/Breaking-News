@@ -60,7 +60,11 @@
         <td>{{$value.pub_date|dataFormat}}</td>
         <td>{{$value.state}}</td>
         <td>
-          <button type="button" class="layui-btn layui-btn-xs" id="btnRedact">
+          <button
+            type="button"
+            class="layui-btn layui-btn-xs btn-redact"
+            data-index="{{$value.Id}}"
+          >
             编辑
           </button>
           <button
@@ -76,6 +80,12 @@
     </script>
     <script type="text/html" id="tpl-cate">
       <option value="">所有分类</option>
+      {{each data}}
+      <option value="{{$value.Id}}">{{$value.name}}</option>
+      {{/each}}
+    </script>
+    <script type="text/html" id="tpl-cate">
+      <option value="">请选择文章类别</option>
       {{each data}}
       <option value="{{$value.Id}}">{{$value.name}}</option>
       {{/each}}

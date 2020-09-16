@@ -95,7 +95,6 @@ $("tbody").on("click", ".btnDelete", function (e) {
   e.preventDefault();
 
   var len = $(".btnDelete").length;
-  console.log(len);
 
   var id = $(this).attr("data-index");
 
@@ -121,4 +120,10 @@ $("tbody").on("click", ".btnDelete", function (e) {
       });
     }
   );
+});
+
+$("tbody").on("click", ".btn-redact", function () {
+  var id = $(this).attr("data-index");
+
+  location.href = "art_edit.html?id+" + id;
 });
